@@ -284,7 +284,7 @@ def hero() -> str:
                              Packet(0, "agentic AI workflows"), Packet(0, "Qredibility")]),
         ("D2", "FRONTEND", 190, [Packet(0, "React"), Packet(0, "Next.js"), Packet(0, "TypeScript"),
                                  Packet(0, "Front Hub: 500+ micro-frontends", LILAC_100, INK, True)]),
-        ("D3", "NODE.JS", 182, [Packet(0, "JavaScript and Node.js, 20+ years", LILAC_100, INK, True),
+        ("D3", "BACKEND", 182, [Packet(0, "JavaScript and Node.js, 20+ years", LILAC_100, INK, True),
                                 Packet(0, "PostgreSQL"), Packet(0, "Redis"), Packet(0, "AWS")]),
         ("D4", "PLATFORM", 260, [Packet(0, "Docker"), Packet(0, "Kubernetes"), Packet(0, "observability"),
                                  Packet(0, "CI/CD")]),
