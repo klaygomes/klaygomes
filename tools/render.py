@@ -278,16 +278,16 @@ def hero() -> str:
 
     lanes_top, lane_h = 182, 46
     work = [
-        ("D0", "CAREER", 176, [Packet(0, "Resultados Digitais"), Packet(0, "Klarna"), Packet(0, "SEB"),
-                               Packet(0, "Mentimeter"), Packet(0, "Tech Lead, Qred", YELLOW, INK, True)]),
-        ("D1", "LEAD", 230, [Packet(0, "team of 6 engineers"), Packet(0, "hiring"),
-                             Packet(0, "agentic AI workflows"), Packet(0, "Qredibility")]),
-        ("D2", "FRONTEND", 190, [Packet(0, "React"), Packet(0, "Next.js"), Packet(0, "TypeScript"),
-                                 Packet(0, "Front Hub: 500+ micro-frontends", LILAC_100, INK, True)]),
-        ("D3", "BACKEND", 182, [Packet(0, "JavaScript and Node.js, 20+ years", LILAC_100, INK, True),
-                                Packet(0, "PostgreSQL"), Packet(0, "Redis"), Packet(0, "AWS")]),
-        ("D4", "PLATFORM", 260, [Packet(0, "Docker"), Packet(0, "Kubernetes"), Packet(0, "observability"),
-                                 Packet(0, "CI/CD")]),
+        ("D0", "CAREER", 200, [Packet(0, "Resultados Digitais"), Packet(0, "Klarna"), Packet(0, "SEB"),
+                               Packet(0, "Mentimeter"), Packet(0, "Qred", YELLOW, INK, True)]),
+        ("D1", "LEAD", 250, [Packet(0, "tech leadership"), Packet(0, "hiring"),
+                             Packet(0, "coaching"), Packet(0, "agentic AI")]),
+        ("D2", "FRONTEND", 214, [Packet(0, "React"), Packet(0, "Next.js"), Packet(0, "TypeScript"),
+                                 Packet(0, "micro-frontends", LILAC_100, INK, True)]),
+        ("D3", "BACKEND", 190, [Packet(0, "Node.js", LILAC_100, INK, True), Packet(0, "JavaScript"),
+                                Packet(0, "PostgreSQL"), Packet(0, "Redis")]),
+        ("D4", "PLATFORM", 236, [Packet(0, "AWS"), Packet(0, "Docker"), Packet(0, "Kubernetes"),
+                                 Packet(0, "OpenTelemetry"), Packet(0, "CI/CD")]),
     ]
     for n, (index, name, start, packets) in enumerate(work):
         mid = lanes_top + n * lane_h + lane_h / 2
