@@ -50,7 +50,6 @@ SECTION_INDEX = Style(14, 720, 70, 0.08)
 BADGE_TAG = Style(12, 700, 70, 0.12)
 BADGE = Style(18, 600, 96)
 CLOSE = Style(32, 820, 108, -0.01)
-CLOSE_SUB = Style(17, 420, 96)
 
 MOTION = """<style>
 .clk{animation:run 1s linear infinite}
@@ -118,8 +117,8 @@ TS = Typesetter(FONT)
 class Packet:
     x: float
     text: str
-    fill: str = PURPLE_700
-    ink: str = LILAC_50
+    fill: str = WHITE
+    ink: str = PURPLE_900
     strong: bool = False
 
 
@@ -149,7 +148,7 @@ def hex_rgb(color: str) -> tuple[float, float, float]:
     return tuple(int(color[i:i + 2], 16) / 255 for i in (1, 3, 5))
 
 
-def panel(height: float, ground: str, auras: Sequence[Aura], uid: str) -> list[str]:
+def panel(height: float, ground: str, auras: Sequence[Aura], uid: str, border: str = LILAC_100) -> list[str]:
     bleed = 90
     defs, layers = [], []
     for i, a in enumerate(auras):
@@ -175,6 +174,7 @@ def panel(height: float, ground: str, auras: Sequence[Aura], uid: str) -> list[s
     return [
         f'<defs>{"".join(defs)}<clipPath id="clip-{uid}"><rect width="{WIDTH}" height="{height:g}" rx="{RADIUS}"/></clipPath></defs>',
         f'<g clip-path="url(#clip-{uid})"><rect width="{WIDTH}" height="{height:g}" fill="{ground}"/>{"".join(layers)}</g>',
+        f'<rect x=".75" y=".75" width="{WIDTH - 1.5}" height="{height - 1.5:g}" rx="{RADIUS - 0.75}" fill="none" stroke="{border}" stroke-width="1.5"/>',
     ]
 
 
@@ -199,7 +199,7 @@ def draw_packet(p: Packet, mid: float, h: float = 30) -> list[str]:
     style = PACKET_STRONG if p.strong else PACKET
     w = packet_width(p)
     return [
-        f'<path d="{hexagon(p.x, mid, w, h)}" fill="{p.fill}" stroke="{LILAC_100}" stroke-opacity=".45" '
+        f'<path d="{hexagon(p.x, mid, w, h)}" fill="{p.fill}" stroke="{PURPLE_700}" stroke-opacity=".3" '
         f'stroke-width="1.5" stroke-linejoin="round"/>',
         TS.path(p.text, p.x + w / 2, mid + style.size * 0.35, style, p.ink, "middle"),
     ]
@@ -219,10 +219,10 @@ def bus(mid: float, packets: Sequence[Packet], start: float = GUTTER, end: float
     parts = []
     cursor = start
     for p in packets:
-        parts.append(line(cursor, mid, p.x, mid, LILAC_100, opacity=0.35))
+        parts.append(line(cursor, mid, p.x, mid, PURPLE_700, opacity=0.22))
         parts += draw_packet(p, mid)
         cursor = p.x + packet_width(p)
-    parts.append(line(cursor, mid, end, mid, LILAC_100, opacity=0.35))
+    parts.append(line(cursor, mid, end, mid, PURPLE_700, opacity=0.22))
     return parts
 
 
@@ -242,14 +242,14 @@ def clock(mid: float, start: float, end: float, uid: str, stroke: str = YELLOW, 
 
 def channel_label(index: str, name: str, mid: float) -> list[str]:
     return [
-        TS.path(index, 36, mid + 4.4, INDEX, LILAC_100, opacity=0.65),
-        TS.path(name, 64, mid + 5, LABEL, LILAC_50),
+        TS.path(index, 36, mid + 4.4, INDEX, PURPLE_700, opacity=0.7),
+        TS.path(name, 64, mid + 5, LABEL, PURPLE_900),
     ]
 
 
 def cursor_flag(x: float, top: float, bottom: float, letter: str) -> list[str]:
     return [
-        line(x, top + 18, x, bottom, YELLOW, 1.25, dash="4 4"),
+        line(x, top + 18, x, bottom, PURPLE_700, 1.25, 0.4, "4 4"),
         f'<rect x="{x - 10:g}" y="{top:g}" width="20" height="20" rx="4" fill="{YELLOW}"/>',
         TS.path(letter, x, top + 14.5, FLAG, INK, "middle"),
     ]
@@ -257,22 +257,22 @@ def cursor_flag(x: float, top: float, bottom: float, letter: str) -> list[str]:
 
 def hero() -> str:
     height = 556
-    body = panel(height, PURPLE_900, [
-        Aura(MAGENTA_500, 0.9, 11, 120, 110, 440, "0.0034 0.0042"),
-        Aura(PURPLE_700, 1, 3, 560, 340, 380),
-        Aura(YELLOW, 0.42, 23, 840, 540, 320, "0.0026 0.004"),
-        Aura(LILAC_100, 0.34, 41, 780, 20, 300, "0.004 0.006", "lighten"),
+    body = panel(height, LILAC_50, [
+        Aura(YELLOW, 0.55, 23, 820, 30, 340, "0.0026 0.004"),
+        Aura(MAGENTA_500, 0.16, 11, 90, 110, 420, "0.0034 0.0042"),
+        Aura(PURPLE_700, 0.12, 3, 520, 420, 380),
+        Aura(WHITE, 0.8, 41, 380, 260, 420, "0.004 0.006", "lighten"),
     ], "hero")
-    body.append(TS.path("Cleiton Loiola", 36, 78, NAME, YELLOW))
-    body.append(TS.path("Tech Lead at Qred, Stockholm", 38, 114, ROLE, LILAC_50))
-    body.append(TS.path("Δ A→B  20+ years", RIGHT, 80, READOUT, YELLOW, "end"))
-    body.append(TS.path("of JavaScript and Node.js on UNIX", RIGHT, 112, READOUT_SUB, LILAC_100, "end"))
+    body.append(TS.path("Cleiton Loiola", 36, 78, NAME, PURPLE_900))
+    body.append(TS.path("Tech Lead at Qred, Stockholm", 38, 114, ROLE, INK))
+    body.append(TS.path("Δ A→B  20+ years", RIGHT, 80, READOUT, MAGENTA_700, "end"))
+    body.append(TS.path("of JavaScript and Node.js on UNIX", RIGHT, 112, READOUT_SUB, INK, "end"))
 
     rule_y = 144
-    body.append(line(0, rule_y, WIDTH, rule_y, LILAC_100, 1, 0.25))
+    body.append(line(0, rule_y, WIDTH, rule_y, PURPLE_700, 1, 0.15))
     x, i = GUTTER, 0
     while x <= RIGHT:
-        body.append(line(x, rule_y, x, rule_y + (9 if i % 4 == 0 else 5), LILAC_100, 1, 0.5))
+        body.append(line(x, rule_y, x, rule_y + (9 if i % 4 == 0 else 5), PURPLE_700, 1, 0.35))
         x += 11
         i += 1
 
@@ -283,8 +283,8 @@ def hero() -> str:
         ("D1", "LEAD", 250, [Packet(0, "tech leadership"), Packet(0, "hiring"),
                              Packet(0, "coaching"), Packet(0, "agentic AI")]),
         ("D2", "FRONTEND", 214, [Packet(0, "React"), Packet(0, "Next.js"), Packet(0, "TypeScript"),
-                                 Packet(0, "micro-frontends", LILAC_100, INK, True)]),
-        ("D3", "BACKEND", 190, [Packet(0, "Node.js", LILAC_100, INK, True), Packet(0, "JavaScript"),
+                                 Packet(0, "micro-frontends", LILAC_100, PURPLE_900, True)]),
+        ("D3", "BACKEND", 190, [Packet(0, "Node.js", LILAC_100, PURPLE_900, True), Packet(0, "JavaScript"),
                                 Packet(0, "PostgreSQL"), Packet(0, "Redis")]),
         ("D4", "PLATFORM", 236, [Packet(0, "AWS"), Packet(0, "Docker"), Packet(0, "Kubernetes"),
                                  Packet(0, "OpenTelemetry"), Packet(0, "CI/CD")]),
@@ -295,7 +295,7 @@ def hero() -> str:
         body += bus(mid, flow(start, packets))
 
     divider_y = lanes_top + len(work) * lane_h + 14
-    body.append(line(36, divider_y, RIGHT, divider_y, LILAC_100, 1, 0.3))
+    body.append(line(36, divider_y, RIGHT, divider_y, PURPLE_700, 1, 0.18))
     tag = "AFTER HOURS: HOBBIES"
     tag_w = TS.width(tag, LABEL) + 24
     body.append(f'<rect x="{GUTTER + 34:g}" y="{divider_y - 11:g}" width="{tag_w:g}" height="22" rx="4" fill="{MAGENTA_500}"/>')
@@ -311,7 +311,7 @@ def hero() -> str:
     body += channel_label("D6", "STM32 CLK", clk_mid)
     tag = Packet(0, "STM32 clock tree")
     tag = Packet(RIGHT - packet_width(tag), tag.text)
-    body += clock(clk_mid, GUTTER, tag.x - 14, "hero")
+    body += clock(clk_mid, GUTTER, tag.x - 14, "hero", MAGENTA_500)
     body += draw_packet(tag, clk_mid)
 
     body += cursor_flag(182, rule_y + 14, height - 16, "A")
@@ -330,16 +330,16 @@ def section(title: str, index: str) -> str:
     body = [TS.path(index, 2, mid + 5, SECTION_INDEX, MAGENTA_500)]
     x = 44
     w = TS.width(title, SECTION) + 52
-    body.append(line(28, mid, x, mid, MAGENTA_500, 2))
+    body.append(line(28, mid, x, mid, MAGENTA_500, 1.5))
     body.append(
-        f'<path d="{hexagon(x, mid, w, 54, 14)}" fill="{PURPLE_900}" stroke="{MAGENTA_500}" '
-        f'stroke-width="2" stroke-linejoin="round"/>'
+        f'<path d="{hexagon(x, mid, w, 54, 14)}" fill="{LILAC_50}" stroke="{PURPLE_700}" stroke-opacity=".35" '
+        f'stroke-width="1.5" stroke-linejoin="round"/>'
     )
-    body.append(TS.path(title, x + w / 2, mid + 10.5, SECTION, YELLOW, "middle"))
+    body.append(TS.path(title, x + w / 2, mid + 10.5, SECTION, PURPLE_900, "middle"))
     end = x + w
-    body.append(line(end, mid, end + 40, mid, MAGENTA_500, 2))
+    body.append(line(end, mid, end + 40, mid, MAGENTA_500, 1.5))
     pulse = f"M{end + 40:g} {mid:g}V{mid - 12:g}H{end + 60:g}V{mid:g}H{WIDTH - 2:g}"
-    body.append(f'<path d="{pulse}" fill="none" stroke="{MAGENTA_500}" stroke-width="2"/>')
+    body.append(f'<path d="{pulse}" fill="none" stroke="{MAGENTA_500}" stroke-width="1.5"/>')
     return svg(WIDTH, height, body, title)
 
 
@@ -358,19 +358,17 @@ def badge(tag: str, text: str, fill: str, ink: str) -> str:
 
 def close() -> str:
     height = 124
-    body = panel(height, MAGENTA_500, [
-        Aura(PURPLE_700, 0.85, 5, 110, 70, 300, "0.004 0.012"),
-        Aura(PURPLE_900, 0.55, 9, 470, 124, 240, "0.003 0.01"),
-        Aura(YELLOW, 0.45, 17, 850, 10, 230, "0.0035 0.011"),
-        Aura(LILAC_100, 0.3, 29, 640, 0, 220, "0.005 0.014", "lighten"),
-    ], "close")
+    body = panel(height, YELLOW, [
+        Aura(WHITE, 0.55, 29, 660, 10, 280, "0.005 0.014", "lighten"),
+        Aura(MAGENTA_500, 0.16, 5, 110, 80, 300, "0.004 0.012"),
+        Aura(PURPLE_700, 0.1, 9, 470, 124, 240, "0.003 0.01"),
+    ], "close", YELLOW)
     mid = 64
-    body += [TS.path("D6", 36, mid + 4.4, INDEX, WHITE, opacity=0.75), TS.path("STM32 CLK", 64, mid + 5, LABEL, WHITE)]
-    body += clock(mid, GUTTER, 470, "close", YELLOW)
-    body.append(line(470, 22, 470, height - 22, YELLOW, 1.25, dash="4 4"))
-    body.append(TS.path("ssh cleiton.se", 496, 58, CLOSE, WHITE))
-    body.append(TS.path("read my resume in your terminal", 497, 86, CLOSE_SUB, WHITE))
-    return svg(WIDTH, height, body, "ssh cleiton.se: read my resume in your terminal", motion=True)
+    body += channel_label("D6", "STM32 CLK", mid)
+    body += clock(mid, GUTTER, 470, "close", PURPLE_900)
+    body.append(line(470, 22, 470, height - 22, PURPLE_900, 1.25, 0.45, "4 4"))
+    body.append(TS.path("ssh cleiton.se", 496, mid + 11.5, CLOSE, PURPLE_900))
+    return svg(WIDTH, height, body, "ssh cleiton.se", motion=True)
 
 
 def main():
@@ -383,8 +381,8 @@ def main():
         "section-projects": section("Projects", "D6"),
         "section-writing": section("Writing", "D7"),
         "contact-email": badge("MAIL", "email@cleiton.dev", YELLOW, INK),
-        "contact-linkedin": badge("LINKEDIN", "klaygomes", PURPLE_700, LILAC_50),
-        "contact-blog": badge("BLOG", "estacouveflor.com", MAGENTA_500, WHITE),
+        "contact-linkedin": badge("LINKEDIN", "klaygomes", LILAC_100, PURPLE_900),
+        "contact-blog": badge("BLOG", "estacouveflor.com", LILAC_100, MAGENTA_700),
         "close": close(),
     }
     for name, content in files.items():

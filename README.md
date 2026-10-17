@@ -42,4 +42,4 @@
 
 <br>
 
-<a href="https://github.com/klaygomes/resume"><img src="assets/close.svg" width="880" alt="ssh cleiton.se: read my resume in your terminal"></a>
+<a href="https://github.com/klaygomes/resume"><img src="assets/close.svg" width="880" alt="ssh cleiton.se"></a>
