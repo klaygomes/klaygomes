@@ -4,9 +4,7 @@
 
 <sub>After hours, for fun: C, Rust and STM32 microcontrollers.</sub>
 
-<a href="mailto:email@cleiton.dev"><img src="assets/contact-email.svg" height="44" alt="Email: email@cleiton.dev"></a>&nbsp;<a href="https://www.linkedin.com/in/klaygomes"><img src="assets/contact-linkedin.svg" height="44" alt="LinkedIn: klaygomes"></a>&nbsp;<a href="https://www.estacouveflor.com"><img src="assets/contact-blog.svg" height="44" alt="Blog: estacouveflor.com"></a>
-
-<sub>[email@cleiton.dev](mailto:email@cleiton.dev) · [linkedin.com/in/klaygomes](https://www.linkedin.com/in/klaygomes) · [estacouveflor.com](https://www.estacouveflor.com)</sub>
+[email@cleiton.dev](mailto:email@cleiton.dev) · [linkedin.com/in/klaygomes](https://www.linkedin.com/in/klaygomes) · [estacouveflor.com](https://www.estacouveflor.com)
 
 <h3><img src="assets/section-building.svg" width="880" alt="Building now"></h3>
 

@@ -47,8 +47,6 @@ PACKET = Style(17, 540, 92)
 PACKET_STRONG = Style(17, 720, 92)
 SECTION = Style(30, 820, 108, -0.01)
 SECTION_INDEX = Style(14, 720, 70, 0.08)
-BADGE_TAG = Style(12, 700, 70, 0.12)
-BADGE = Style(18, 600, 96)
 CLOSE = Style(32, 820, 108, -0.01)
 
 MOTION = """<style>
@@ -343,19 +341,6 @@ def section(title: str, index: str) -> str:
     return svg(WIDTH, height, body, title)
 
 
-def badge(tag: str, text: str, fill: str, ink: str) -> str:
-    height, pad, point = 44, 20, 12
-    tag_w = TS.width(tag, BADGE_TAG)
-    text_w = TS.width(text, BADGE)
-    width = pad + tag_w + 12 + text_w + pad + 2
-    body = [
-        f'<path d="{hexagon(1, height / 2, width - 2, height - 2, point)}" fill="{fill}"/>',
-        TS.path(tag, 1 + pad, height / 2 + 4, BADGE_TAG, ink, opacity=0.7),
-        TS.path(text, 1 + pad + tag_w + 12, height / 2 + 6.3, BADGE, ink),
-    ]
-    return svg(round(width, 1), height, body, f"{tag}: {text}")
-
-
 def close() -> str:
     height = 124
     body = panel(height, YELLOW, [
@@ -380,9 +365,6 @@ def main():
         "section-building": section("Building now", "D5"),
         "section-projects": section("Projects", "D6"),
         "section-writing": section("Writing", "D7"),
-        "contact-email": badge("MAIL", "email@cleiton.dev", YELLOW, INK),
-        "contact-linkedin": badge("LINKEDIN", "klaygomes", LILAC_100, PURPLE_900),
-        "contact-blog": badge("BLOG", "estacouveflor.com", LILAC_100, MAGENTA_700),
         "close": close(),
     }
     for name, content in files.items():
