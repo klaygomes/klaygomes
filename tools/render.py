@@ -305,7 +305,7 @@ def hero() -> str:
     hobby_mid = hobby_top + lane_h / 2
     body += channel_label("D5", "LOW-LEVEL", hobby_mid)
     body += bus(hobby_mid, flow(300, [Packet(0, "C", MAGENTA_500, WHITE, True), Packet(0, "Rust", MAGENTA_500, WHITE, True),
-                                      Packet(0, "embedded"), Packet(0, "mini-painel")]))
+                                      Packet(0, "embedded")]))
 
     clk_mid = hobby_top + lane_h + lane_h / 2
     body += channel_label("D6", "STM32 CLK", clk_mid)
