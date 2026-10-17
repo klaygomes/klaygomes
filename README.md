@@ -19,6 +19,7 @@
 <h3><img src="assets/section-projects.svg" width="880" alt="Projects"></h3>
 
 **Frontend**
+- [Front Hub](https://front-hub.rdstation.com.br/): a micro-frontend framework and CLI I wrote at Resultados Digitais, now powering 500+ micro-frontends
 - [mini-react](https://github.com/klaygomes/mini-react): a tiny React-like library to see what happens under the hood · <sub>[article](https://www.estacouveflor.com/mini-react/)</sub>
 - [magic-cursor-wand](https://github.com/klaygomes/magic-cursor-wand): chalk lines, glitter and clouds that follow your pointer · <sub>[docs](https://www.estacouveflor.com/magic-cursor-wand/) · [article](https://www.estacouveflor.com/magic-cursor-wand-pointer-effects/)</sub>
 - [geo-location](https://github.com/klaygomes/geo-location): a take-home challenge with React, Redux and Sagas · <sub>[article](https://www.estacouveflor.com/geo-location/)</sub>
