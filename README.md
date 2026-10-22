@@ -1,4 +1,4 @@
-<a href="https://www.estacouveflor.com"><img src="assets/cleiton_career_trace_card.svg" width="880" alt="Cleiton Loiola, Tech Lead at Qred, Stockholm. 20+ years of JavaScript and Node.js on UNIX. Previously Mentimeter, SEB, Klarna and Resultados Digitais. Hobbies: C, Rust and STM32."></a>
+<a href="https://www.estacouveflor.com"><img src="assets/trace-card.svg" width="880" alt="Cleiton Loiola, Tech Lead at Qred, Stockholm. 20+ years of JavaScript and Node.js on UNIX. Previously Mentimeter, SEB, Klarna and Resultados Digitais. Hobbies: C, Rust and STM32."></a>
 
 **Cleiton Loiola**, Tech Lead at [Qred](https://www.qred.com) in Stockholm, leading the Acquisition team and building agentic AI tooling for engineers. 20+ years of JavaScript and Node.js on UNIX, previously at Mentimeter, SEB, Klarna and Resultados Digitais, where I wrote Front Hub, a micro-frontend framework now powering 500+ micro-frontends. Full story in my [resume](https://github.com/klaygomes/resume/blob/main/cleiton-loiola.md).
 
