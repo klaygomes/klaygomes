@@ -6,13 +6,13 @@
 
 Reach me at [email@cleiton.dev](mailto:email@cleiton.dev) or on [LinkedIn](https://www.linkedin.com/in/klaygomes).
 
-<h3><img src="assets/section-building.svg" width="880" alt="Building now"></h3>
+<h3><img src="assets/trace-building.svg" width="880" alt="Building now"></h3>
 
 **[TinyTroop](https://tinytroop.estacouveflor.com)**: free planning poker that shows who should explain first when votes differ ([blog](https://tinytroop.estacouveflor.com/blog/)).
 
 **[hurl-orchestra](https://github.com/klaygomes/hurl-orchestra)**: a dependency-aware task runner for Hurl API tests ([docs](https://www.estacouveflor.com/hurl-orchestra/), [article](https://www.estacouveflor.com/hurl-orchestra-ai-first-api-testing/)).
 
-<h3><img src="assets/section-projects.svg" width="880" alt="Projects"></h3>
+<h3><img src="assets/trace-projects.svg" width="880" alt="Projects"></h3>
 
 **Frontend**
 - [Front Hub](https://front-hub.rdstation.com.br/): a micro-frontend framework and CLI I wrote at Resultados Digitais, now powering 500+ micro-frontends
@@ -28,7 +28,7 @@ Reach me at [email@cleiton.dev](mailto:email@cleiton.dev) or on [LinkedIn](https
 **Low-level, as a hobby**
 - [mini-painel](https://github.com/klaygomes/mini-painel): talking to a tiny USB screen in C ([docs](https://github.com/klaygomes/mini-painel/tree/main/doc), [article](https://www.estacouveflor.com/mini-painel/))
 
-<h3><img src="assets/section-writing.svg" width="880" alt="Writing"></h3>
+<h3><img src="assets/trace-writing.svg" width="880" alt="Writing"></h3>
 
 **[Esta couve flor](https://www.estacouveflor.com/articles/)**: the whole stack, from React on the screen down to the clock tree of an STM32.<br>
 <sub>Start with [the STM32 clock system](https://www.estacouveflor.com/entendendo-coracao-stm32/), [how CALLs use the stack](https://www.estacouveflor.com/como-calls-fazem-uso-stack-post/) or [async and await](https://www.estacouveflor.com/async-e-await/).</sub>
@@ -38,4 +38,4 @@ Reach me at [email@cleiton.dev](mailto:email@cleiton.dev) or on [LinkedIn](https
 
 <br>
 
-<a href="https://github.com/klaygomes/resume"><img src="assets/close.svg" width="880" alt="ssh cleiton.se"></a>
+<a href="https://github.com/klaygomes/resume"><img src="assets/trace-close.svg" width="880" alt="ssh cleiton.se"></a>
